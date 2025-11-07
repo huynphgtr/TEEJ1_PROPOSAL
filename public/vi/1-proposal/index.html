@@ -15,21 +15,21 @@
     <title>Đề Án :: Báo cáo đề án thực tập</title>
 
     
-    <link href="../../css/nucleus.css?1762510166" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1762510166" rel="stylesheet">
-    <link href="../../css/hybrid.css?1762510166" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1762510166" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1762510166" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1762510166" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1762510166" rel="stylesheet">
-    <link href="../../css/theme.css?1762510166" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1762510166" rel="stylesheet">
+    <link href="../../css/nucleus.css?1762518709" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1762518709" rel="stylesheet">
+    <link href="../../css/hybrid.css?1762518709" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1762518709" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1762518709" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1762518709" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1762518709" rel="stylesheet">
+    <link href="../../css/theme.css?1762518709" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1762518709" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1762510166" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1762518709" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1762510166"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1762518709"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1762510166"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1762510166"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1762518709"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1762518709"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/repository-name\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1762510166"></script>
+<script type="text/javascript" src="../../js/search.js?1762518709"></script>
  
   </div>
 
@@ -289,7 +289,7 @@
     <li><a href="#3-kiến-trúc-giải-pháp">3. Kiến trúc Giải pháp</a>
       <ul>
         <li><a href="#các-dịch-vụ-aws-được-sử-dụng">Các Dịch vụ AWS Được Sử dụng</a></li>
-        <li><a href="#thiết-kế-thành-phần">Thiết kế Thành phần</a></li>
+        <li><a href="#thiết-kế-thành-phần">Thiết Kế Thành Phần</a></li>
       </ul>
     </li>
     <li><a href="#4-triển-khai-kỹ-thuật">4. Triển khai Kỹ thuật</a>
@@ -446,33 +446,31 @@
       </tr>
   </tbody>
 </table>
-<h3 id="thiết-kế-thành-phần">Thiết kế Thành phần</h3>
-<p>Nền tảng hoạt động thông qua bốn luồng chức năng riêng biệt, liên kết với nhau:</p>
-<p><strong>1. Tương tác API Thời gian Thực (Luồng Đồng bộ)</strong></p>
+<h3 id="thiết-kế-thành-phần">Thiết Kế Thành Phần</h3>
+<p>Hoạt động của nền tảng SorcererXStreme được xác định bởi bốn luồng chức năng riêng biệt, liên kết với nhau, bao quát tất cả các hoạt động được thể hiện trong sơ đồ Kiến trúc Hệ thống cấp cao:</p>
+<h4 id="1-tương-tác-api-thời-gian-thực-luồng-đồng-bộ">1. Tương tác API Thời gian Thực (Luồng Đồng bộ)</h4>
 <ul>
-<li><strong>Điểm vào Yêu cầu (Request Entry):</strong> Yêu cầu của người dùng đi vào qua Route 53 → CloudFront → WAF.</li>
-<li><strong>Định tuyến &amp; Logic (4):</strong> API Gateway định tuyến các yêu cầu đến Lambda function thích hợp.
-<ul>
-<li>Lambda Chatbot Đọc/Ghi lịch sử trò chuyện từ DynamoDB để duy trì ngữ cảnh, sau đó gọi Bedrock.</li>
-<li>Lambda Metaphysical API thực hiện các phép tính phức tạp, gọi Bedrock và Lưu Lịch sử (DynamoDB).</li>
+<li><strong>Tiếp nhận Yêu cầu (1):</strong> Yêu cầu của người dùng được nhận và lọc tại Tầng Biên (Edge Layer) thông qua <strong>Route 53</strong> → <strong>CloudFront</strong> (để caching) → <strong>WAF</strong> (để bảo mật).</li>
+<li><strong>Định tuyến &amp; Logic (2, 4):</strong> Yêu cầu được chuyển tiếp đến <strong>API Gateway</strong> hoặc <strong>App Runner</strong>. API Gateway định tuyến lưu lượng đến các hàm <strong>Lambda</strong> cụ thể (ví dụ: <code>HistoryAPI</code>, <code>MetaphysicalAPI</code>).</li>
+<li><strong>Hoạt động Chatbot:</strong> Lambda Chatbot đọc ngữ cảnh từ <strong>DynamoDB</strong> (Đọc chat), xử lý yêu cầu, và gọi <strong>Bedrock</strong> để tạo sinh nội dung LLM.</li>
+<li><strong>Bảo mật Dữ liệu (3):</strong> Bất kỳ Lambda nào yêu cầu truy cập database hoặc khóa LLM đều phải lấy thông tin xác thực một cách an toàn từ <strong>Secrets Manager</strong>.</li>
+<li><strong>Lưu trữ Dữ liệu (5):</strong> Kết quả cuối cùng hoặc các luận giải được lưu (Save History) vào <strong>DynamoDB</strong> hoặc <strong>RDS for PostgreSQL</strong>.</li>
 </ul>
-</li>
-<li><strong>Bảo mật (3):</strong> Tất cả các Lambda truy cập Secrets Manager để truy xuất thông tin xác thực cần thiết một cách an toàn.</li>
-</ul>
-<p><strong>2. Thông báo Tử vi Hàng ngày (Luồng Bất đồng bộ)</strong></p>
+<h4 id="2-thông-báo-tử-vi-hàng-ngày-luồng-bất-đồng-bộ">2. Thông báo Tử vi Hàng ngày (Luồng Bất đồng bộ)</h4>
 <ul>
-<li><strong>Kích hoạt (6):</strong> EventBridge Scheduler kích hoạt vào một thời điểm đã định (ví dụ: 8:00 sáng), kích hoạt TriggerReminderLambda.</li>
-<li><strong>Phân tán (Fan-Out) (7):</strong> Lambda này đọc danh sách người dùng từ RDS và gửi các tin nhắn riêng lẻ (ID người dùng, email) đến Hàng đợi Lời nhắc SQS (SQS Reminder Queue).</li>
-<li><strong>Phân phối (Delivery) (8):</strong> SendReminderLambda kéo các tin nhắn từ SQS, tạo nội dung thông báo và gửi email qua Amazon SES.</li>
+<li><strong>Kích hoạt (6):</strong> Luồng bắt đầu thông qua <strong>EventBridge Scheduler</strong>, được kích hoạt vào một thời điểm đã định trước để gọi hàm <code>TriggerReminderLambda</code>.</li>
+<li><strong>Phân tán (Fan-Out) (7):</strong> Hàm Lambda này truy vấn <strong>RDS</strong> để lấy danh sách người dùng đã đăng ký nhận thông báo và đẩy các tin nhắn riêng lẻ vào <strong>Hàng đợi SQS (Reminder Queue)</strong>.</li>
+<li><strong>Phân phối (8):</strong> Hàm <code>SendReminderLambda</code> riêng biệt được kích hoạt bởi SQS, tạo nội dung email cuối cùng và gửi thông báo đến người dùng thông qua <strong>Amazon SES</strong>.</li>
 </ul>
-<p><strong>3. Luồng Giám sát &amp; Cảnh báo</strong></p>
+<h4 id="3-luồng-giám-sát--cảnh-báo">3. Luồng Giám sát &amp; Cảnh báo</h4>
 <ul>
-<li><strong>Ghi nhật ký (Logging) (9):</strong> Tất cả các dịch vụ đẩy nhật ký và số liệu đến CloudWatch.</li>
-<li><strong>Cảnh báo:</strong> CloudWatch Alarm giám sát các số liệu quan trọng và sử dụng Amazon SNS để thông báo cho nhà phát triển về các sự cố nghiêm trọng.</li>
+<li><strong>Ghi nhật ký (9):</strong> Tất cả các dịch vụ đang hoạt động (<strong>Lambda, RDS, DynamoDB, App Runner</strong>) liên tục công bố logs và metrics của chúng lên <strong>Amazon CloudWatch</strong>.</li>
+<li><strong>Cảnh báo:</strong> <strong>CloudWatch Alarm</strong> chủ động giám sát các chỉ số hoạt động quan trọng (ví dụ: tỷ lệ lỗi, số lượng tin nhắn DLQ) và sử dụng <strong>Amazon SNS</strong> để gửi cảnh báo khẩn cấp đến đội ngũ Phát triển/Vận hành.</li>
 </ul>
-<p><strong>4. DevOps (Luồng CI/CD)</strong></p>
+<h4 id="4-devops-luồng-cicd">4. DevOps (Luồng CI/CD)</h4>
 <ul>
-<li><strong>Cập nhật Mã (Code Update) (10):</strong> Các nhà phát triển đẩy mã lên GitHub, kích hoạt chuỗi CodePipeline/CodeBuild. Pipeline tự động đóng gói và triển khai mã được cập nhật đến Tầng Tính toán (Compute Layer) (Lambda, App Runner), đảm bảo cập nhật không bị gián đoạn.</li>
+<li><strong>Cập nhật Mã (10):</strong> Nhà phát triển đẩy mã mới lên <strong>GitHub</strong>, điều này kích hoạt quy trình CI/CD được quản lý bởi <strong>AWS CodePipeline/CodeBuild</strong>.</li>
+<li><strong>Triển khai:</strong> Pipeline tự động đóng gói ứng dụng và triển khai phiên bản mới đến Tầng Tính toán (<strong>Compute Layer</strong>) (các hàm Lambda và App Runner), đảm bảo cập nhật nhất quán và tự động.</li>
 </ul>
 <h2 id="4-triển-khai-kỹ-thuật">4. Triển khai Kỹ thuật</h2>
 <p>Dự án SorcererXStreme sẽ tuân theo phương pháp <strong>Phát triển Lặp lại - Linh hoạt (Agile-Iterative Development)</strong>, tập trung vào việc cung cấp một phần gia tăng hoạt động với vai trò người dùng mở rộng và tích hợp RAG trong mỗi chu kỳ. Việc phát triển được cơ cấu thành một <strong>lộ trình 9 tuần</strong> bao gồm ba lần lặp chính (Iter 3, 4 và 5) sau giai đoạn lập kế hoạch ban đầu.</p>
@@ -936,19 +934,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1762510166"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1762510166"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1762510166"></script>
-    <script src="../../js/jquery.sticky.js?1762510166"></script>
-    <script src="../../js/featherlight.min.js?1762510166"></script>
-    <script src="../../js/highlight.pack.js?1762510166"></script>
+    <script src="../../js/clipboard.min.js?1762518709"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1762518709"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1762518709"></script>
+    <script src="../../js/jquery.sticky.js?1762518709"></script>
+    <script src="../../js/featherlight.min.js?1762518709"></script>
+    <script src="../../js/highlight.pack.js?1762518709"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1762510166"></script>
-    <script src="../../js/learn.js?1762510166"></script>
-    <script src="../../js/hugo-learn.js?1762510166"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1762518709"></script>
+    <script src="../../js/learn.js?1762518709"></script>
+    <script src="../../js/hugo-learn.js?1762518709"></script>
 
-    <link href="../../mermaid/mermaid.css?1762510166" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1762510166"></script>
+    <link href="../../mermaid/mermaid.css?1762518709" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1762518709"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -59,28 +59,33 @@ The SorcererXStreme AI platform utilizes a robust, hybrid serverless architectur
 | **Data & Storage**          | RDS for PostgreSQL, DynamoDB, S3      | RDS stores relational data (detailed user profiles, user lists for reminders). DynamoDB stores high-velocity, frequently accessed data (Chat History, Interpretation History). S3 stores static assets and the RAG knowledge base.   |
 | **Monitoring & DevOps**     | CloudWatch, SNS, CodePipeline         | CloudWatch collects logs and metrics. SNS sends critical alerts to developers. CodePipeline/CodeBuild manages the CI/CD pipeline from GitHub to deployment.                                                                          |
 
-### Component Design
+### Component Design (Comprehensive Flow Description)
 
-The platform operates through four distinct, interconnected functional flows:
+The SorcererXStreme platform's operation is defined by four distinct, interconnected functional flows, covering all activities shown in the High-Level System Architecture diagram:
 
-**1. Real-Time API Interaction (Synchronous Flow)**
-*   **Request Entry:** User requests enter via Route 53 → CloudFront → WAF.
-*   **Routing & Logic (4):** API Gateway routes requests to the appropriate Lambda function.
-    *   Chatbot Lambda Reads/Writes chat history from DynamoDB to maintain context, then calls Bedrock.
-    *   Metaphysical API Lambda performs complex calculations, calls Bedrock, and Saves History (DynamoDB).
-*   **Security (3):** All Lambdas access Secrets Manager to retrieve necessary credentials securely.
+#### 1. Real-Time API Interaction (Synchronous Flow)
 
-**2. Daily Horoscope Notifications (Asynchronous Flow)**
-*   **Trigger (6):** EventBridge Scheduler fires at a set time (e.g., 8:00 AM), triggering the TriggerReminderLambda.
-*   **Fan-Out (7):** This Lambda reads the user list from RDS and sends individual messages (User IDs, email) to the SQS Reminder Queue.
-*   **Delivery (8):** SendReminderLambda pulls messages from SQS, generates the notification content, and sends the email via Amazon SES.
+* **Request Entry (1):** User requests are received and filtered at the Edge Layer via **Route 53** → **CloudFront** (for caching) → **WAF** (for security).
+* **Routing & Logic (2, 4):** Requests are forwarded to **API Gateway** or **App Runner**. API Gateway directs traffic to specific **Lambda** functions (e.g., `HistoryAPI`, `MetaphysicalAPI`).
+* **Chatbot Operation:** The Chatbot Lambda reads context from **DynamoDB** (Read chat), processes the request, and calls **Bedrock** for LLM generation.
+* **Data Security (3):** Any Lambda requiring database access or LLM keys must first fetch credentials securely from **Secrets Manager**.
+* **Data Persistence (5):** Final results or interpretations are saved (Save History) to **DynamoDB** or **RDS for PostgreSQL**.
 
-**3. Monitoring & Alerting Flow**
-*   **Logging (9):** All services push logs and metrics to CloudWatch.
-*   **Alerts:** CloudWatch Alarm monitors vital metrics and uses Amazon SNS to notify developers of critical issues.
+#### 2. Daily Horoscope Notifications (Asynchronous Flow)
 
-**4. DevOps (CI/CD Flow)**
-*   **Code Update (10):** Developers push code to GitHub, triggering the CodePipeline/CodeBuild sequence. The pipeline automatically packages and deploys updated code to the Compute Layer (Lambda, App Runner), ensuring zero-downtime updates.
+* **Trigger (6):** The flow starts via the **EventBridge Scheduler**, firing at a predetermined time to trigger the `TriggerReminderLambda`.
+* **Fan-Out (7):** This Lambda queries **RDS** to retrieve the list of users subscribed to notifications and pushes the individual user messages into the **SQS Reminder Queue**.
+* **Delivery (8):** The separate `SendReminderLambda` is triggered by SQS, generates the final email content, and sends the notification to the user via **Amazon SES**.
+
+#### 3. Monitoring & Alerting Flow
+
+* **Logging (9):** All active services (**Lambda, RDS, DynamoDB, App Runner**) continuously publish their logs and metrics to **Amazon CloudWatch**.
+* **Alerts:** **CloudWatch Alarm** actively monitors critical operational metrics (e.g., error rates, DLQ message count) and uses **Amazon SNS** to send urgent alerts to the Developer/Operations team.
+
+#### 4. DevOps (CI/CD Flow)
+
+* **Code Update (10):** The Developer pushes new code to **GitHub**, which triggers the CI/CD pipeline managed by **AWS CodePipeline/CodeBuild**.
+* **Deployment:** The pipeline automatically packages the application and deploys the new version to the **Compute Layer** (Lambda functions and App Runner), ensuring consistent and automated updates.
 
 ## 4. Technical Implementation
 
