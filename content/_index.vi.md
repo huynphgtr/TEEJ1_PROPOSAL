@@ -9,20 +9,20 @@ chapter: false
 
 | Trường | Chi tiết |
 | :--- | :--- |
-| **Tên Nhóm** | **TEEJ1** |
-| **Trường Đại học** | FPT University HCMC |
+| **Tên Nhóm** | **TEEJ_SorcererXStreme** |
+| **Trường Đại học** | Đại học FPT - Hồ Chí Minh Campus|
 | **Công ty Thực tập** | Amazon Web Services Vietnam Co., Ltd. |
 | **Vị trí Thực tập** | FCJ Cloud Intern |
-| **Thời gian Thực tập** | From 08/09/2025 to 24/12/2025 |
+| **Thời gian Thực tập** | Từ ngày 08/09/2025 đến 24/12/2025 |
 
 
 ### Thành Viên Nhóm
 
-| Ảnh | Vai trò | Họ và Tên | Chuyên ngành | Liên hệ |
-| :---: | :---: | :--- | :--- | :--- |
-| **!(path/to/huyen_photo.jpg)** | **Trưởng nhóm** | Tran Phuong Huyen | Software Engineering | tranphuonghuyen2005@gmail.com |
-| **!(path/to/lamanh_photo.jpg)** | AI | Nguyen Lam Anh | Artifical Intelligent | 111 |
-| **!(path/to/linh_photo.jpg)** | AI | Nguyen Van Linh | Artifical Intelligent | 111 |
-| **!(path/to/khang_photo.jpg)** | SE | Bui Nguyen Tan Khang | Software Engineering | 111 |
+| Vai trò | Họ và Tên | Chuyên ngành | Liên hệ |
+| :---: | :--- | :--- | :--- |
+| **Trưởng nhóm** | Trần Phương Huyền | Software Engineering | tranphuonghuyen2005@gmail.com |
+| AI | Nguyễn Lâm Anh | Artifical Intelligent | nguyenla110505@gmail.com |
+| AI | Nguyễn Văn Linh | Artifical Intelligent | nguyenvanlinh.1710.it@gmail.com |
+| SE | Bùi Nguyễn Tấn Khang | Software Engineering | tankhang6a6@gmail.com |
 
 

@@ -148,34 +148,40 @@ The SorcererXStreme project will be executed over a concentrated **9-week develo
 | **Iter 4: Roles & VIP System**         | 3 Weeks        | 4 – 5 – 6       | **Core Logic Implementation & Authorization**   | **AWS Cognito** integrated for user authentication. Full **Guest/Free/VIP role logic** implemented and testable. RAG data corpus built on S3.                               |
 | **Iter 5: AWS Deployment & QA**        | 3 Weeks        | 7 – 8 – 9       | **Cloud Deployment & Stabilization**            | System running **stably on AWS** (Amplify, Lambda, DynamoDB). Full end-to-end testing completed. **AWS Cost and Performance Sheet** finalized. Readiness for Beta Launch.   |
 
+
 ## 6. Budget Estimation
 
-The project is structured to operate primarily within the **AWS Free Tier** for the first 12 months.
+The project is structured to operate primarily within the AWS Free Tier for the first 12 months, resulting in an extremely low operational cost. We assume low usage for a non-production Demo and MVP environment (approx. 5,000 requests/month).
 
-### Infrastructure Costs
+### Infrastructure Costs 
 
-| AWS Service                                | Monthly Free Tier Benefit                   | Estimated Monthly Cost (USD)   | Cost Type      | Notes & Free Tier Status                                      |
-| :----------------------------------------------: | :-----------------------------------------------: | :----------------------------------: | :------------------: | :-----------------------------------------------------------------: |
-| **AWS Lambda** (Compute)                       | 1M Requests & 400K GB-seconds                   | **$0.00**                          | Usage              | Entirely within Free Tier limits.                                 |
-| **API Gateway** (Routing)                      | 1 Million Requests                              | **$0.00**                          | Usage              | Entirely within Free Tier limits.                                 |
-| **DynamoDB** (History/Rate Limiting)           | 25 GB Storage & 25M RCU/WCU                     | **$0.00**                          | Usage              | Fully covered by Free Tier.                                       |
-| **Amazon S3** (RAG Knowledge Base)             | 5 GB Standard Storage                           | **$0.00**                          | Usage              | Fully covered by Free Tier (1 GB usage).                          |
-| **Cognito** (Auth)                             | 50,000 MAUs                                     | **$0.00**                          | Usage              | Fully covered by Free Tier (100 MAUs usage).                      |
-| **RDS for PostgreSQL** (t3.micro, Single-AZ)   | 750 Hours/Month & 20 GB Storage                 | **$0.00**                          | Instance/Storage   | Covered by Free Tier for 12 months (744 hours/month usage).       |
-| **App Runner** (Frontend Hosting)              | 14K vCPU-hours & 52K GB-hours                   | **$0.00**                          | Instance/Storage   | Covered by Free Tier for 12 months.                               |
-| **SQS, SES, EventBridge, CloudWatch**          | Generous limits on requests, emails, and logs   | **$0.00**                          | Usage              | All asynchronous and monitoring services are covered.             |
-| **Secrets Manager** (RDS/LLM Keys)             | 30-day Free Trial, then $0.40/secret/month      | **≈$0.80**                         | **Fixed**          | Cost for storing 2 secrets. The only fixed infrastructure cost.   |
+| Layer | AWS Service | Purpose | Estimated Monthly Cost (USD) - Free Tier | Estimated Monthly Cost (USD) - Paid |
+| :---: | :---: | :---: | :---: | :---: |
+| **I. COMPUTE & API** | | | | |
+| 1 | AWS Lambda | Backend Logic (RAG, Compute) | $6.76 | $6.77 |
+| 2 | Amazon API Gateway | Synchronous Request Gateway | $0.01 | $0.01 |
+| 3 | AWS App Runner | Host Frontend (Next.js) | $0.00 | $24.9 |
+| **II. DATA & STORAGE** | | | | |
+| 4 | RDS for PostgreSQL | Relational Data/Profiles | $0.00 | $23.20 |
+| 5 | Amazon DynamoDB | Chat History/Rate Limiting | $0.00 | $0.57 |
+| 6 | Amazon S3 | RAG Knowledge Base/Assets | $0.00 | $0.03 |
+| **III. AI & SECURITY** | | | | |
+| 7 | Amazon Bedrock | LLM/Content Generation | $0.00 | $0.55 |
+| 8 | Amazon Cognito | Authentication/User Roles (MAUs) | $0.00 | $5.00 |
+| 9 | Secrets Manager | Store Master Keys (Fixed Cost) | $0.80 | $0.80 |
+| **IV. ASYNC & MONITORING** | | | | |
+| 10 | EventBridge Scheduler | Daily Horoscope Trigger | $0.00 | $0.00 |
+| 11 | Amazon SQS | Notification Queue | $0.00 | $0.00 |
+| 12 | Amazon SES | Email Delivery | $0.00 | $0.50 |
+| 13 | Amazon CloudWatch | Logs/Metrics/Alarms | $5.00 | $30.00 |
+| 14 | Amazon SNS | Alert Notifications | $0.00 | $0.00 |
 
 ### Total Project Cost
 
-| Category                           | Cost Estimation   | Purpose / Control Mechanism                                                                              |
-| :--------------------------------------: | :---------------------: | :------------------------------------------------------------------------------------------------------------: |
-| **Total Infrastructure Cost**          | **≈$0.80**            | **Secrets Manager** only. All other services are 0.00 USD.                                                   |
-| **AI/LLM (Bedrock)**                   | **≈$1.00–$5.00**      | Variable cost (usage dependent). Controlled by **Lambda token limits** and **usage tiering**.                |
-| **AI Budget Ceiling (Safety Limit)**   | **$35.00**            | Maximum allocated spend for AI/LLM to prevent cost spikes from code loops or abuse.                          |
-| **Maximum Safe Total Monthly Cost**    | **≈$35.80 USD**       | **Ensures the project remains safely below the $40 USD threshold.** AWS Budgets will be set at this level.   |
-
-**Conclusion:** The SorcererXStreme AI project is designed for operational stability and cost efficiency, with a core infrastructure cost of under $1 USD and a safety ceiling of $35.80 USD to prevent unexpected billing, making it ideal for a demonstration or MVP.
+| Category | Cost Estimation (USD/Month) | Purpose / Control Mechanism |
+| :---: | :---: | :---: |
+| **Total Cost (Scenario A: Free Tier/Demo)** | $12.57 | Includes Lambda overage and fixed costs. Achieves low operational cost. |
+| **Total Cost (Scenario B: Paid/Production)** | $92.33 | Full commercial rate required for 24/7 reliability (App Runner, RDS). |
 
 ## 7. Risk Assessment
 
