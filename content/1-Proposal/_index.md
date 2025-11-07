@@ -90,7 +90,7 @@ The SorcererXStreme project will follow an **Agile-Iterative Development** metho
 
 | Phase                                             | Duration   | Focus Area                                                                                                                                     |
 | :-----------------------------------------------------: | :--------------: | :----------------------------------------------------------------------------------------------------------------------------------: |
-| **I. Requirement Analysis & Documentation (Iter3)**   | 3 Week         | Finalize SRS (v2) and SDS (v2) documents, proposal, setting the foundation for expanded roles and RAG.                                             |
+| **I. Requirement Analysis & Documentation (Iter 3)**   | 3 Week         | Finalize SRS (v2) and SDS (v2) documents, proposal, setting the foundation for expanded roles and RAG.                                             |
 | **II. Design & Expansion (Iter 4)**                   | 3 Week         | Core development of the RAG pipeline, implementation of the User Role system (Guest/Free/VIP), and configuration of the core AWS infrastructure.   |
 | **III. AWS Integration & Testing (Iter 5)**           | 3 Week         | Full deployment on AWS, end-to-end testing, and performance optimization.                                                                          |
 | **IV. Evaluation & Handoff**                          | Ongoing        | Optimization, performance reporting, and final beta release preparation.                                                                           |
@@ -106,7 +106,7 @@ The SorcererXStreme project will follow an **Agile-Iterative Development** metho
 | **System Documentation**   | Review and update existing architecture. Write **SRS v2** (Functional & Non-functional) and **SDS v2**.                                                                                  | SE                   |
 | **UX & Role Flow**         | Design detailed user flows for **Guest/Free/VIP** transitions. Define functional limits per role. Propose **VIP upgrade UI**.                                                            | SE                   |
 | **RAG Architecture**       | Propose the RAG mechanism (data source, pipeline, embedding storage). Design RAG prototype pipeline: text -> embedding -> index. **Data collection** (Tarot, Horoscope, Numerology).   | AI                   |
-| **AWS Infrastructure**     | Finalize **AWS Architecture Diagram** (Amplify, Lambda, DynamoDB, Cognito, S3). Calculate **Cost Estimation** focusing on Free-tier and Serverless options.                              | SE, AI               |
+| **AWS Infrastructure**     | Finalize **AWS Architecture Diagram**. Calculate **Cost Estimation** focusing on Free-tier and Serverless options.                              | SE, AI               |
 
 **Deliverables:** Completed SRS v2, SDS v2, AWS Architecture Diagram with Cost Estimation, UX/Role Flow documentation, and RAG prototype design.
 
