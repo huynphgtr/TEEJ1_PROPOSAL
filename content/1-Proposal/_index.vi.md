@@ -59,32 +59,33 @@ Nền tảng SorcererXStreme AI sử dụng kiến trúc serverless lai (hybrid 
 | **Dữ liệu & Lưu trữ**     | RDS for PostgreSQL, DynamoDB, S3    | RDS lưu trữ dữ liệu quan hệ (hồ sơ người dùng chi tiết, danh sách người dùng cho lời nhắc). DynamoDB lưu trữ dữ liệu truy cập nhanh, tần suất cao (Lịch sử Chat, Lịch sử Luận giải). S3 lưu trữ tài sản tĩnh và cơ sở tri thức RAG. |
 | **Giám sát & DevOps**     | CloudWatch, SNS, CodePipeline       | CloudWatch thu thập nhật ký (logs) và số liệu (metrics). SNS gửi cảnh báo quan trọng đến các nhà phát triển. CodePipeline/CodeBuild quản lý quy trình CI/CD từ GitHub đến triển khai.                                               |
 
-### Thiết kế Thành phần
+### Thiết Kế Thành Phần 
 
-Nền tảng hoạt động thông qua bốn luồng chức năng riêng biệt, liên kết với nhau:
+Hoạt động của nền tảng SorcererXStreme được xác định bởi bốn luồng chức năng riêng biệt, liên kết với nhau, bao quát tất cả các hoạt động được thể hiện trong sơ đồ Kiến trúc Hệ thống cấp cao:
 
-**1. Tương tác API Thời gian Thực (Luồng Đồng bộ)**
+#### 1. Tương tác API Thời gian Thực (Luồng Đồng bộ)
 
-*   **Điểm vào Yêu cầu (Request Entry):** Yêu cầu của người dùng đi vào qua Route 53 → CloudFront → WAF.
-*   **Định tuyến & Logic (4):** API Gateway định tuyến các yêu cầu đến Lambda function thích hợp.
-    *   Lambda Chatbot Đọc/Ghi lịch sử trò chuyện từ DynamoDB để duy trì ngữ cảnh, sau đó gọi Bedrock.
-    *   Lambda Metaphysical API thực hiện các phép tính phức tạp, gọi Bedrock và Lưu Lịch sử (DynamoDB).
-*   **Bảo mật (3):** Tất cả các Lambda truy cập Secrets Manager để truy xuất thông tin xác thực cần thiết một cách an toàn.
+* **Tiếp nhận Yêu cầu (1):** Yêu cầu của người dùng được nhận và lọc tại Tầng Biên (Edge Layer) thông qua **Route 53** → **CloudFront** (để caching) → **WAF** (để bảo mật).
+* **Định tuyến & Logic (2, 4):** Yêu cầu được chuyển tiếp đến **API Gateway** hoặc **App Runner**. API Gateway định tuyến lưu lượng đến các hàm **Lambda** cụ thể (ví dụ: `HistoryAPI`, `MetaphysicalAPI`).
+* **Hoạt động Chatbot:** Lambda Chatbot đọc ngữ cảnh từ **DynamoDB** (Đọc chat), xử lý yêu cầu, và gọi **Bedrock** để tạo sinh nội dung LLM.
+* **Bảo mật Dữ liệu (3):** Bất kỳ Lambda nào yêu cầu truy cập database hoặc khóa LLM đều phải lấy thông tin xác thực một cách an toàn từ **Secrets Manager**.
+* **Lưu trữ Dữ liệu (5):** Kết quả cuối cùng hoặc các luận giải được lưu (Save History) vào **DynamoDB** hoặc **RDS for PostgreSQL**.
 
-**2. Thông báo Tử vi Hàng ngày (Luồng Bất đồng bộ)**
+#### 2. Thông báo Tử vi Hàng ngày (Luồng Bất đồng bộ)
 
-*   **Kích hoạt (6):** EventBridge Scheduler kích hoạt vào một thời điểm đã định (ví dụ: 8:00 sáng), kích hoạt TriggerReminderLambda.
-*   **Phân tán (Fan-Out) (7):** Lambda này đọc danh sách người dùng từ RDS và gửi các tin nhắn riêng lẻ (ID người dùng, email) đến Hàng đợi Lời nhắc SQS (SQS Reminder Queue).
-*   **Phân phối (Delivery) (8):** SendReminderLambda kéo các tin nhắn từ SQS, tạo nội dung thông báo và gửi email qua Amazon SES.
+* **Kích hoạt (6):** Luồng bắt đầu thông qua **EventBridge Scheduler**, được kích hoạt vào một thời điểm đã định trước để gọi hàm `TriggerReminderLambda`.
+* **Phân tán (Fan-Out) (7):** Hàm Lambda này truy vấn **RDS** để lấy danh sách người dùng đã đăng ký nhận thông báo và đẩy các tin nhắn riêng lẻ vào **Hàng đợi SQS (Reminder Queue)**.
+* **Phân phối (8):** Hàm `SendReminderLambda` riêng biệt được kích hoạt bởi SQS, tạo nội dung email cuối cùng và gửi thông báo đến người dùng thông qua **Amazon SES**.
 
-**3. Luồng Giám sát & Cảnh báo**
+#### 3. Luồng Giám sát & Cảnh báo
 
-*   **Ghi nhật ký (Logging) (9):** Tất cả các dịch vụ đẩy nhật ký và số liệu đến CloudWatch.
-*   **Cảnh báo:** CloudWatch Alarm giám sát các số liệu quan trọng và sử dụng Amazon SNS để thông báo cho nhà phát triển về các sự cố nghiêm trọng.
+* **Ghi nhật ký (9):** Tất cả các dịch vụ đang hoạt động (**Lambda, RDS, DynamoDB, App Runner**) liên tục công bố logs và metrics của chúng lên **Amazon CloudWatch**.
+* **Cảnh báo:** **CloudWatch Alarm** chủ động giám sát các chỉ số hoạt động quan trọng (ví dụ: tỷ lệ lỗi, số lượng tin nhắn DLQ) và sử dụng **Amazon SNS** để gửi cảnh báo khẩn cấp đến đội ngũ Phát triển/Vận hành.
 
-**4. DevOps (Luồng CI/CD)**
+#### 4. DevOps (Luồng CI/CD)
 
-*   **Cập nhật Mã (Code Update) (10):** Các nhà phát triển đẩy mã lên GitHub, kích hoạt chuỗi CodePipeline/CodeBuild. Pipeline tự động đóng gói và triển khai mã được cập nhật đến Tầng Tính toán (Compute Layer) (Lambda, App Runner), đảm bảo cập nhật không bị gián đoạn.
+* **Cập nhật Mã (10):** Nhà phát triển đẩy mã mới lên **GitHub**, điều này kích hoạt quy trình CI/CD được quản lý bởi **AWS CodePipeline/CodeBuild**.
+* **Triển khai:** Pipeline tự động đóng gói ứng dụng và triển khai phiên bản mới đến Tầng Tính toán (**Compute Layer**) (các hàm Lambda và App Runner), đảm bảo cập nhật nhất quán và tự động.
 
 ## 4. Triển khai Kỹ thuật 
 
