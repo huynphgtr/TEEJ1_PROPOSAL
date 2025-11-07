@@ -5,22 +5,22 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-# SorcererXStreme: Nền tảng Hướng dẫn Siêu hình Ứng dụng AI
+# SorcererXStreme: Nền tảng Luận giải Ứng dụng AI
 
 ## 1. Tóm tắt  
 
-Nền tảng SorcererXStreme AI là một hệ thống hướng dẫn tâm linh thống nhất do AI điều khiển, được thiết kế để giúp người dùng khám phá bản thân thông qua nhiều lĩnh vực huyền học Đông và Tây khác nhau, bao gồm Chiêm tinh học (Astrology), Tarot, Thần số học (Numerology) và Tử vi Phương Đông (Eastern Horoscopes). Nền tảng của hệ thống là Lõi Tạo sinh Tăng cường Truy xuất (Retrieval-Augmented Generation - RAG Core), đảm bảo tất cả đầu ra đều dựa trên các nguồn tri thức huyền học được chọn lọc.
+Nền tảng SorcererXStreme AI là một nền tảng luận giải tâm linh dựa trên AI, được thiết kế để giúp người dùng khám phá bản thân thông qua nhiều lĩnh vực huyền học Đông và Tây khác nhau, bao gồm Chiêm tinh học (Astrology), Tarot, Thần số học (Numerology) và Tử vi Phương Đông (Eastern Horoscopes). Nền tảng của hệ thống là Lõi Tạo sinh Tăng cường Truy xuất (Retrieval-Augmented Generation - RAG Core), đảm bảo tất cả đầu ra đều dựa trên các nguồn tri thức huyền học được chọn lọc.
 
-## 2. Phát biểu Vấn đề 
+## 2. Vấn đề đặt ra
 
-### Vấn đề là gì?
+### Vấn đề
 
 Người dùng hiện đang phải đối mặt với một số hạn chế khi khám phá kiến thức tâm linh và siêu hình:
 
-*   **Thông tin Phân mảnh và Chưa được Xác minh:** Thông tin rải rác trên internet và thường thiếu độ tin cậy hoặc sự đối chiếu thích hợp.
+*   **Thông tin Rời rạc và Chưa được Xác minh:** Thông tin rải rác trên internet và thường thiếu độ tin cậy hoặc sự đối chiếu thích hợp.
 *   **Khó khăn trong Việc So sánh Đa ngành:** Kết quả khó so sánh giữa các trường phái tư tưởng Phương Đông (ví dụ: Tử vi Phương Đông) và Phương Tây (ví dụ: Chiêm tinh học).
 *   **Thiếu Cá nhân hóa và Tương tác:** Hầu hết các ứng dụng cung cấp các bài đọc tĩnh, thiếu chiều sâu của đối thoại cá nhân hóa và lời khuyên theo ngữ cảnh.
-*   **Nội dung Nông:** Nhiều ứng dụng "vui" thiếu chiều sâu trí tuệ và kiến thức vững chắc.
+*   **Nội dung mơ hồ:** Nhiều ứng dụng mang tính giải trí thiếu chiều sâu, chưa được xác thực.
 
 ### Giải pháp
 
@@ -31,7 +31,7 @@ SorcererXStreme AI cung cấp một nền tảng thống nhất, trực quan và
 *   **Trải nghiệm Người dùng Phân tầng:** Các tầng Miễn phí (Free) và VIP tối ưu hóa trải nghiệm người dùng và tạo ra một luồng doanh thu.
 *   **Thiết kế Hiệu quả về Chi phí:** Một thiết kế hiện đại, nhẹ được triển khai nhanh chóng trên kiến trúc serverless AWS tối ưu hóa chi phí.
 
-### Lợi ích và Lợi tức Đầu tư (Return on Investment)
+### Lợi ích và Lợi tức Đầu tư 
 
 | Lợi ích              | Tác động                                                             | Giá trị                                        |
 | :--------------------: | :------------------------------------------------------------------: | :--------------------------------------------: |
@@ -40,7 +40,7 @@ SorcererXStreme AI cung cấp một nền tảng thống nhất, trực quan và
 | **Khả năng Kiếm tiền** | Mô hình đăng ký VIP mở khóa các tính năng nâng cao.                  | Dòng Doanh thu Ổn định và khả năng kinh doanh. |
 | **Chi phí Vận hành**   | Kiến trúc serverless AWS được sử dụng.                               | Ước tính $15–$35/tháng cho MVP.                |
 
-## 3. Kiến trúc Giải pháp (Solution Architecture)
+## 3. Kiến trúc Giải pháp 
 
 Nền tảng SorcererXStreme AI sử dụng kiến trúc serverless lai (hybrid serverless) mạnh mẽ trên AWS, được thiết kế tỉ mỉ để xử lý các tương tác người dùng theo thời gian thực, các tác vụ theo lịch trình và giám sát tự động. Thiết kế toàn diện này đảm bảo tính toán chuyên biệt, khả năng mở rộng cao và bảo mật nghiêm ngặt trên tất cả các luồng chức năng.
 
@@ -86,7 +86,7 @@ Nền tảng hoạt động thông qua bốn luồng chức năng riêng biệt,
 
 *   **Cập nhật Mã (Code Update) (10):** Các nhà phát triển đẩy mã lên GitHub, kích hoạt chuỗi CodePipeline/CodeBuild. Pipeline tự động đóng gói và triển khai mã được cập nhật đến Tầng Tính toán (Compute Layer) (Lambda, App Runner), đảm bảo cập nhật không bị gián đoạn.
 
-## 4. Triển khai Kỹ thuật (Technical Implementation)
+## 4. Triển khai Kỹ thuật 
 
 Dự án SorcererXStreme sẽ tuân theo phương pháp **Phát triển Lặp lại - Linh hoạt (Agile-Iterative Development)**, tập trung vào việc cung cấp một phần gia tăng hoạt động với vai trò người dùng mở rộng và tích hợp RAG trong mỗi chu kỳ. Việc phát triển được cơ cấu thành một **lộ trình 9 tuần** bao gồm ba lần lặp chính (Iter 3, 4 và 5) sau giai đoạn lập kế hoạch ban đầu.
 
@@ -142,7 +142,7 @@ Quá trình phát triển bao gồm bốn giai đoạn chính, được chia th�
 
 **Sản phẩm Bàn giao:** Hệ thống ổn định chạy trên cơ sở hạ tầng AWS. Báo cáo hiệu suất, chi phí và kiểm thử (**AWS Service Cost and Performance Sheet**). Sẵn sàng cho việc kiểm thử Beta công khai.
 
-## 5. Mốc thời gian & Các cột mốc (Timeline & Milestones)
+## 5. Mốc thời gian & Các cột mốc 
 
 Dự án SorcererXStreme sẽ được thực hiện trong **khoảng thời gian phát triển tập trung 9 tuần** theo mô hình Lặp lại - Linh hoạt (Agile-Iterative) để nhanh chóng cung cấp một MVP với các tính năng chính như **lõi RAG** và **hệ thống người dùng VIP**.
 
@@ -154,36 +154,42 @@ Dự án SorcererXStreme sẽ được thực hiện trong **khoảng thời gia
 | **Lặp 4: Vai trò & Hệ thống VIP**        | 3 Tuần    | 4 – 5 – 6     | **Triển khai Logic Cốt lõi & Ủy quyền** | **AWS Cognito** được tích hợp để xác thực người dùng. Logic vai trò **Khách/Miễn phí/VIP** đầy đủ được triển khai và có thể kiểm thử. Corpus dữ liệu RAG được xây dựng trên S3.       |
 | **Lặp 5: Triển khai AWS & QA**           | 3 Tuần    | 7 – 8 – 9     | **Triển khai Đám mây & Ổn định**        | Hệ thống chạy **ổn định trên AWS** (Amplify, Lambda, DynamoDB). Hoàn thành kiểm thử đầu cuối đầy đủ. **AWS Cost and Performance Sheet** được hoàn thiện. Sẵn sàng cho Phát hành Beta. |
 
-## 6. Ước tính Ngân sách (Budget Estimation)
+## 6. Ước Tính Ngân Sách 
+Dự án được cấu trúc để hoạt động chủ yếu trong **Gói Miễn phí AWS (Free Tier)** trong 12 tháng đầu tiên, dẫn đến chi phí vận hành cực kỳ thấp. Chúng tôi giả định mức sử dụng thấp cho môi trường Demo và MVP (khoảng 5.000 yêu cầu/tháng).
 
-Dự án được cơ cấu để hoạt động chủ yếu trong **Tầng Miễn phí AWS (AWS Free Tier)** trong 12 tháng đầu tiên, dẫn đến chi phí vận hành cực kỳ thấp. Chúng tôi giả định mức sử dụng thấp cho môi trường demo/MVP không sản xuất (khoảng 5.000 yêu cầu/tháng).
+### Chi phí Cơ sở Hạ tầng
 
-### Chi phí Cơ sở hạ tầng
+| Lớp | Dịch vụ AWS | Mục đích | Chi phí Ước tính (USD/Tháng) - Free Tier | Chi phí Ước tính (USD/Tháng) - Trả phí |
+| :---: | :---: | :---: | :---: | :---: |
+| **I. TÍNH TOÁN & API** | | | | |
+| 1 | AWS Lambda | Logic Backend (RAG, Compute) | $6.76 | $6.77 |
+| 2 | Amazon API Gateway | Cổng vào Yêu cầu Đồng bộ | $0.01 | $0.01 |
+| 3 | AWS App Runner | Host Frontend (Next.js) | $0.00 | $24.90 |
+| **II. DỮ LIỆU & LƯU TRỮ** | | | | |
+| 4 | RDS for PostgreSQL | Dữ liệu Quan hệ/Hồ sơ | $0.00 | $23.20 |
+| 5 | Amazon DynamoDB | Lịch sử Chat/Giới hạn Truy cập | $0.00 | $0.57 |
+| 6 | Amazon S3 | Kho tri thức RAG/Tài sản | $0.00 | $0.03 |
+| **III. AI & BẢO MẬT** | | | | |
+| 7 | Amazon Bedrock | LLM/Tạo sinh Nội dung | $0.00 | $0.55 |
+| 8 | Amazon Cognito | Xác thực/Phân quyền Người dùng | $0.00 | $5.00 |
+| 9 | Secrets Manager | Lưu trữ Khóa Chính (Chi phí Cố định) | $0.80 | $0.80 |
+| **IV. BẤT ĐỒNG BỘ & GIÁM SÁT** | | | | |
+| 10 | EventBridge Scheduler | Kích hoạt Lịch trình Tử vi Hàng ngày | $0.00 | $0.00 |
+| 11 | Amazon SQS | Hàng đợi Thông báo | $0.00 | $0.00 |
+| 12 | Amazon SES | Gửi Email | $0.00 | $0.50 |
+| 13 | Amazon CloudWatch | Logs/Metrics/Cảnh báo | $5.00 | $30.00 |
+| 14 | Amazon SNS | Cảnh báo Thông báo | $0.00 | $0.00 |
 
-| Dịch vụ AWS                                  | Lợi ích Miễn phí Hàng tháng                          | Chi phí Ước tính Hàng tháng (USD) | Loại Chi phí     | Ghi chú & Trạng thái Tầng Miễn phí                                         |
-| :------------------------------------------: | :--------------------------------------------------: | :-------------------------------: | :--------------: | :------------------------------------------------------------------------: |
-| **AWS Lambda** (Tính toán)                   | 1M Yêu cầu & 400K GB-giây                            | **$0.00**                         | Sử dụng          | Hoàn toàn trong giới hạn Tầng Miễn phí.                                    |
-| **API Gateway** (Định tuyến)                 | 1 Triệu Yêu cầu                                      | **$0.00**                         | Sử dụng          | Hoàn toàn trong giới hạn Tầng Miễn phí.                                    |
-| **DynamoDB** (Lịch sử/Giới hạn Tốc độ)       | 25 GB Lưu trữ & 25M RCU/WCU                          | **$0.00**                         | Sử dụng          | Được bao phủ hoàn toàn bởi Tầng Miễn phí.                                  |
-| **Amazon S3** (Cơ sở Tri thức RAG)           | 5 GB Lưu trữ Tiêu chuẩn                              | **$0.00**                         | Sử dụng          | Được bao phủ hoàn toàn bởi Tầng Miễn phí (sử dụng 1 GB).                   |
-| **Cognito** (Xác thực)                       | 50.000 MAUs                                          | **$0.00**                         | Sử dụng          | Được bao phủ hoàn toàn bởi Tầng Miễn phí (sử dụng 100 MAUs).               |
-| **RDS for PostgreSQL** (t3.micro, Single-AZ) | 750 Giờ/Tháng & 20 GB Lưu trữ                        | **$0.00**                         | Thể hiện/Lưu trữ | Được bao phủ bởi Tầng Miễn phí trong 12 tháng (sử dụng 744 giờ/tháng).     |
-| **App Runner** (Host Frontend)               | 14K vCPU-giờ & 52K GB-giờ                            | **$0.00**                         | Thể hiện/Lưu trữ | Được bao phủ bởi Tầng Miễn phí trong 12 tháng.                             |
-| **SQS, SES, EventBridge, CloudWatch**        | Giới hạn rộng rãi về yêu cầu, email và nhật ký       | **$0.00**                         | Sử dụng          | Tất cả các dịch vụ bất đồng bộ và giám sát đều được bao phủ.               |
-| **Secrets Manager** (RDS/Khóa LLM)           | Dùng thử 30 ngày Miễn phí, sau đó $0.40/secret/tháng | **≈$0.80**                        | **Cố định**      | Chi phí cho việc lưu trữ 2 bí mật. Chi phí cơ sở hạ tầng cố định duy nhất. |
+---
 
-### Tổng Chi phí Dự án
+### Tổng Chi phí Dự án 
 
-| Hạng mục                                     | Ước tính Chi phí | Mục đích / Cơ chế Kiểm soát                                                                                           |
-| :------------------------------------------: | :--------------: | :-------------------------------------------------------------------------------------------------------------------: |
-| **Tổng Chi phí Cơ sở hạ tầng**               | **≈$0.80**       | Chỉ **Secrets Manager**. Tất cả các dịch vụ khác là 0.00 USD.                                                         |
-| **AI/LLM (Bedrock)**                         | **≈$1.00–$5.00** | Chi phí biến đổi (phụ thuộc vào mức sử dụng). Được kiểm soát bằng **giới hạn token Lambda** và **phân tầng sử dụng**. |
-| **Mức trần Ngân sách AI (Giới hạn An toàn)** | **$35.00**       | Chi tiêu tối đa được phân bổ cho AI/LLM để ngăn chặn đột biến chi phí do vòng lặp mã hoặc lạm dụng.                   |
-| **Tổng Chi phí Hàng tháng An toàn Tối đa**   | **≈$35.80 USD**  | **Đảm bảo dự án vẫn an toàn dưới ngưỡng $40 USD.** Ngân sách AWS sẽ được đặt ở mức này.                               |
+| Hạng mục | Ước tính Chi phí (USD/Tháng) | Mục đích / Cơ chế Kiểm soát |
+| :---: | :---: | :--- |
+| **Tổng Chi phí (Kịch bản A: Free Tier/Demo)** | $12.57 | Bao gồm chi phí vượt mức Lambda và chi phí cố định. Đạt được chi phí vận hành thấp. |
+| **Tổng Chi phí (Kịch bản B: Trả phí/Production)** | $92.33 | Mức giá thương mại đầy đủ yêu cầu cho độ tin cậy 24/7 (App Runner, RDS). |
 
-**Kết luận:** Dự án SorcererXStreme AI được thiết kế để ổn định hoạt động và hiệu quả chi phí, với chi phí cơ sở hạ tầng cốt lõi dưới 1 USD và mức trần an toàn là 35.80 USD để ngăn chặn hóa đơn bất ngờ, làm cho nó trở nên lý tưởng cho một bản demo hoặc MVP.
-
-## 7. Đánh giá Rủi ro (Risk Assessment)
+## 7. Đánh giá Rủi ro 
 
 ### Ma trận Rủi ro
 
@@ -194,7 +200,7 @@ Dự án được cơ cấu để hoạt động chủ yếu trong **Tầng Mi�
 | **Độ trễ Truy xuất RAG**            | Trung bình | Trung bình | Tối ưu hóa việc lập chỉ mục RAG (FAISS); tối ưu hóa kích thước chunk và lựa chọn mô hình embedding.                                            |
 | **Vi phạm Bảo mật**                 | Cao        | Thấp       | Sử dụng **Cognito** để xác thực và **Secret Manager** để xử lý thông tin xác thực.                                                             |
 
-## 8. Kết quả Mong đợi (Expected Outcomes)
+## 8. Kết quả Mong đợi
 
 ### Cải tiến Kỹ thuật
 
