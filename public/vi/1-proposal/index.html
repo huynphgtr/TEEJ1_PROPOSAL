@@ -15,21 +15,21 @@
     <title>Đề Án :: Báo cáo đề án thực tập</title>
 
     
-    <link href="../../css/nucleus.css?1762518709" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1762518709" rel="stylesheet">
-    <link href="../../css/hybrid.css?1762518709" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1762518709" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1762518709" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1762518709" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1762518709" rel="stylesheet">
-    <link href="../../css/theme.css?1762518709" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1762518709" rel="stylesheet">
+    <link href="../../css/nucleus.css?1762704603" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1762704603" rel="stylesheet">
+    <link href="../../css/hybrid.css?1762704603" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1762704603" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1762704603" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1762704603" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1762704603" rel="stylesheet">
+    <link href="../../css/theme.css?1762704603" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1762704603" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1762518709" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1762704603" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1762518709"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1762704603"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1762518709"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1762518709"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1762704603"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1762704603"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/repository-name\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1762518709"></script>
+<script type="text/javascript" src="../../js/search.js?1762704603"></script>
  
   </div>
 
@@ -306,7 +306,7 @@
     <li><a href="#6-ước-tính-ngân-sách">6. Ước Tính Ngân Sách</a>
       <ul>
         <li><a href="#chi-phí-cơ-sở-hạ-tầng">Chi phí Cơ sở Hạ tầng</a></li>
-        <li><a href="#tổng-chi-phí-dự-án">Tổng Chi phí Dự án</a></li>
+        <li><a href="#tổng-chi-phí-dự-án-8559month">Tổng Chi Phí Dự Án: <strong>$85.59/month</strong></a></li>
       </ul>
     </li>
     <li><a href="#7-đánh-giá-rủi-ro">7. Đánh giá Rủi ro</a>
@@ -653,165 +653,125 @@
 <table>
   <thead>
       <tr>
-          <th style="text-align: center">Lớp</th>
-          <th style="text-align: center">Dịch vụ AWS</th>
-          <th style="text-align: center">Mục đích</th>
-          <th style="text-align: center">Chi phí Ước tính (USD/Tháng) - Free Tier</th>
-          <th style="text-align: center">Chi phí Ước tính (USD/Tháng) - Trả phí</th>
+          <th style="text-align: center">Layer</th>
+          <th style="text-align: center">AWS Service</th>
+          <th style="text-align: left">Purpose</th>
+          <th style="text-align: center">Estimated Monthly Cost (USD) - Paid</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: center"><strong>I. TÍNH TOÁN &amp; API</strong></td>
+          <td style="text-align: center"><strong>I. COMPUTE &amp; API</strong></td>
           <td style="text-align: center"></td>
-          <td style="text-align: center"></td>
-          <td style="text-align: center"></td>
+          <td style="text-align: left"></td>
           <td style="text-align: center"></td>
       </tr>
       <tr>
           <td style="text-align: center">1</td>
-          <td style="text-align: center">AWS Lambda</td>
-          <td style="text-align: center">Logic Backend (RAG, Compute)</td>
-          <td style="text-align: center">$6.76</td>
-          <td style="text-align: center">$6.77</td>
+          <td style="text-align: center"><strong>AWS Lambda</strong></td>
+          <td style="text-align: left">Backend Logic (RAG, Compute)</td>
+          <td style="text-align: center">$0.22</td>
       </tr>
       <tr>
           <td style="text-align: center">2</td>
-          <td style="text-align: center">Amazon API Gateway</td>
-          <td style="text-align: center">Cổng vào Yêu cầu Đồng bộ</td>
-          <td style="text-align: center">$0.01</td>
-          <td style="text-align: center">$0.01</td>
+          <td style="text-align: center"><strong>Amazon API Gateway</strong></td>
+          <td style="text-align: left">Synchronous Request Gateway</td>
+          <td style="text-align: center">$0.03</td>
       </tr>
       <tr>
           <td style="text-align: center">3</td>
-          <td style="text-align: center">AWS App Runner</td>
-          <td style="text-align: center">Host Frontend (Next.js)</td>
-          <td style="text-align: center">$0.00</td>
-          <td style="text-align: center">$24.90</td>
+          <td style="text-align: center"><strong>AWS App Runner</strong></td>
+          <td style="text-align: left">Host Frontend (Next.js)</td>
+          <td style="text-align: center">$12.60</td>
       </tr>
       <tr>
-          <td style="text-align: center"><strong>II. DỮ LIỆU &amp; LƯU TRỮ</strong></td>
+          <td style="text-align: center"><strong>II. DATA &amp; STORAGE</strong></td>
           <td style="text-align: center"></td>
-          <td style="text-align: center"></td>
-          <td style="text-align: center"></td>
+          <td style="text-align: left"></td>
           <td style="text-align: center"></td>
       </tr>
       <tr>
           <td style="text-align: center">4</td>
-          <td style="text-align: center">RDS for PostgreSQL</td>
-          <td style="text-align: center">Dữ liệu Quan hệ/Hồ sơ</td>
-          <td style="text-align: center">$0.00</td>
-          <td style="text-align: center">$23.20</td>
+          <td style="text-align: center"><strong>RDS for PostgreSQL</strong></td>
+          <td style="text-align: left">Relational Data/Profiles</td>
+          <td style="text-align: center">$37.14</td>
       </tr>
       <tr>
           <td style="text-align: center">5</td>
-          <td style="text-align: center">Amazon DynamoDB</td>
-          <td style="text-align: center">Lịch sử Chat/Giới hạn Truy cập</td>
-          <td style="text-align: center">$0.00</td>
-          <td style="text-align: center">$0.57</td>
+          <td style="text-align: center"><strong>Amazon DynamoDB</strong></td>
+          <td style="text-align: left">Chat History/Rate Limiting</td>
+          <td style="text-align: center">$0.39</td>
       </tr>
       <tr>
           <td style="text-align: center">6</td>
-          <td style="text-align: center">Amazon S3</td>
-          <td style="text-align: center">Kho tri thức RAG/Tài sản</td>
-          <td style="text-align: center">$0.00</td>
-          <td style="text-align: center">$0.03</td>
+          <td style="text-align: center"><strong>Amazon S3</strong></td>
+          <td style="text-align: left">RAG Knowledge Base/Assets</td>
+          <td style="text-align: center">$0.88</td>
       </tr>
       <tr>
-          <td style="text-align: center"><strong>III. AI &amp; BẢO MẬT</strong></td>
+          <td style="text-align: center"><strong>III. AI &amp; SECURITY</strong></td>
           <td style="text-align: center"></td>
-          <td style="text-align: center"></td>
-          <td style="text-align: center"></td>
+          <td style="text-align: left"></td>
           <td style="text-align: center"></td>
       </tr>
       <tr>
           <td style="text-align: center">7</td>
-          <td style="text-align: center">Amazon Bedrock</td>
-          <td style="text-align: center">LLM/Tạo sinh Nội dung</td>
-          <td style="text-align: center">$0.00</td>
-          <td style="text-align: center">$0.55</td>
+          <td style="text-align: center"><strong>Amazon Bedrock</strong></td>
+          <td style="text-align: left">LLM/Content Generation</td>
+          <td style="text-align: center">$7.87</td>
       </tr>
       <tr>
           <td style="text-align: center">8</td>
-          <td style="text-align: center">Amazon Cognito</td>
-          <td style="text-align: center">Xác thực/Phân quyền Người dùng</td>
+          <td style="text-align: center"><strong>Amazon Cognito</strong></td>
+          <td style="text-align: left">Authentication/User Roles (MAUs)</td>
           <td style="text-align: center">$0.00</td>
-          <td style="text-align: center">$5.00</td>
       </tr>
       <tr>
           <td style="text-align: center">9</td>
-          <td style="text-align: center">Secrets Manager</td>
-          <td style="text-align: center">Lưu trữ Khóa Chính (Chi phí Cố định)</td>
-          <td style="text-align: center">$0.80</td>
-          <td style="text-align: center">$0.80</td>
+          <td style="text-align: center"><strong>Secrets Manager</strong></td>
+          <td style="text-align: left">Store Master Keys (Fixed Cost)</td>
+          <td style="text-align: center">$0.01</td>
       </tr>
       <tr>
-          <td style="text-align: center"><strong>IV. BẤT ĐỒNG BỘ &amp; GIÁM SÁT</strong></td>
+          <td style="text-align: center"><strong>IV. ASYNC &amp; MONITORING</strong></td>
           <td style="text-align: center"></td>
-          <td style="text-align: center"></td>
-          <td style="text-align: center"></td>
+          <td style="text-align: left"></td>
           <td style="text-align: center"></td>
       </tr>
       <tr>
           <td style="text-align: center">10</td>
-          <td style="text-align: center">EventBridge Scheduler</td>
-          <td style="text-align: center">Kích hoạt Lịch trình Tử vi Hàng ngày</td>
-          <td style="text-align: center">$0.00</td>
+          <td style="text-align: center"><strong>EventBridge Scheduler</strong></td>
+          <td style="text-align: left">Daily Horoscope Trigger</td>
           <td style="text-align: center">$0.00</td>
       </tr>
       <tr>
           <td style="text-align: center">11</td>
-          <td style="text-align: center">Amazon SQS</td>
-          <td style="text-align: center">Hàng đợi Thông báo</td>
-          <td style="text-align: center">$0.00</td>
-          <td style="text-align: center">$0.00</td>
+          <td style="text-align: center"><strong>Amazon SQS</strong></td>
+          <td style="text-align: left">Notification Queue</td>
+          <td style="text-align: center">$0.01</td>
       </tr>
       <tr>
           <td style="text-align: center">12</td>
-          <td style="text-align: center">Amazon SES</td>
-          <td style="text-align: center">Gửi Email</td>
-          <td style="text-align: center">$0.00</td>
-          <td style="text-align: center">$0.50</td>
+          <td style="text-align: center"><strong>Amazon SES</strong></td>
+          <td style="text-align: left">Email Delivery</td>
+          <td style="text-align: center">$0.24</td>
       </tr>
       <tr>
           <td style="text-align: center">13</td>
-          <td style="text-align: center">Amazon CloudWatch</td>
-          <td style="text-align: center">Logs/Metrics/Cảnh báo</td>
-          <td style="text-align: center">$5.00</td>
-          <td style="text-align: center">$30.00</td>
+          <td style="text-align: center"><strong>Amazon CloudWatch</strong></td>
+          <td style="text-align: left">Logs/Metrics/Alarms</td>
+          <td style="text-align: center">$6.23</td>
       </tr>
       <tr>
           <td style="text-align: center">14</td>
-          <td style="text-align: center">Amazon SNS</td>
-          <td style="text-align: center">Cảnh báo Thông báo</td>
-          <td style="text-align: center">$0.00</td>
+          <td style="text-align: center"><strong>Amazon SNS</strong></td>
+          <td style="text-align: left">Alert Notifications</td>
           <td style="text-align: center">$0.00</td>
       </tr>
   </tbody>
 </table>
-<hr>
-<h3 id="tổng-chi-phí-dự-án">Tổng Chi phí Dự án</h3>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: center">Hạng mục</th>
-          <th style="text-align: center">Ước tính Chi phí (USD/Tháng)</th>
-          <th style="text-align: left">Mục đích / Cơ chế Kiểm soát</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: center"><strong>Tổng Chi phí (Kịch bản A: Free Tier/Demo)</strong></td>
-          <td style="text-align: center">$12.57</td>
-          <td style="text-align: left">Bao gồm chi phí vượt mức Lambda và chi phí cố định. Đạt được chi phí vận hành thấp.</td>
-      </tr>
-      <tr>
-          <td style="text-align: center"><strong>Tổng Chi phí (Kịch bản B: Trả phí/Production)</strong></td>
-          <td style="text-align: center">$92.33</td>
-          <td style="text-align: left">Mức giá thương mại đầy đủ yêu cầu cho độ tin cậy 24/7 (App Runner, RDS).</td>
-      </tr>
-  </tbody>
-</table>
+<p>Link ước tính ngân sách: <a href="https://drive.google.com/file/d/1B7qVuUHAq4rsdDJjaa-wgAi8MGUIq4Ip/view?usp=sharing">https://drive.google.com/file/d/1B7qVuUHAq4rsdDJjaa-wgAi8MGUIq4Ip/view?usp=sharing</a></p>
+<h3 id="tổng-chi-phí-dự-án-8559month">Tổng Chi Phí Dự Án: <strong>$85.59/month</strong></h3>
 <h2 id="7-đánh-giá-rủi-ro">7. Đánh giá Rủi ro</h2>
 <h3 id="ma-trận-rủi-ro">Ma trận Rủi ro</h3>
 <table>
@@ -934,19 +894,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1762518709"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1762518709"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1762518709"></script>
-    <script src="../../js/jquery.sticky.js?1762518709"></script>
-    <script src="../../js/featherlight.min.js?1762518709"></script>
-    <script src="../../js/highlight.pack.js?1762518709"></script>
+    <script src="../../js/clipboard.min.js?1762704603"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1762704603"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1762704603"></script>
+    <script src="../../js/jquery.sticky.js?1762704603"></script>
+    <script src="../../js/featherlight.min.js?1762704603"></script>
+    <script src="../../js/highlight.pack.js?1762704603"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1762518709"></script>
-    <script src="../../js/learn.js?1762518709"></script>
-    <script src="../../js/hugo-learn.js?1762518709"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1762704603"></script>
+    <script src="../../js/learn.js?1762704603"></script>
+    <script src="../../js/hugo-learn.js?1762704603"></script>
 
-    <link href="../../mermaid/mermaid.css?1762518709" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1762518709"></script>
+    <link href="../../mermaid/mermaid.css?1762704603" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1762704603"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -160,33 +160,30 @@ The project is structured to operate primarily within the AWS Free Tier for the 
 
 ### Infrastructure Costs 
 
-| Layer | AWS Service | Purpose | Estimated Monthly Cost (USD) - Free Tier | Estimated Monthly Cost (USD) - Paid |
-| :---: | :---: | :---: | :---: | :---: |
-| **I. COMPUTE & API** | | | | |
-| 1 | AWS Lambda | Backend Logic (RAG, Compute) | $6.76 | $6.77 |
-| 2 | Amazon API Gateway | Synchronous Request Gateway | $0.01 | $0.01 |
-| 3 | AWS App Runner | Host Frontend (Next.js) | $0.00 | $24.9 |
-| **II. DATA & STORAGE** | | | | |
-| 4 | RDS for PostgreSQL | Relational Data/Profiles | $0.00 | $23.20 |
-| 5 | Amazon DynamoDB | Chat History/Rate Limiting | $0.00 | $0.57 |
-| 6 | Amazon S3 | RAG Knowledge Base/Assets | $0.00 | $0.03 |
-| **III. AI & SECURITY** | | | | |
-| 7 | Amazon Bedrock | LLM/Content Generation | $0.00 | $0.55 |
-| 8 | Amazon Cognito | Authentication/User Roles (MAUs) | $0.00 | $5.00 |
-| 9 | Secrets Manager | Store Master Keys (Fixed Cost) | $0.80 | $0.80 |
-| **IV. ASYNC & MONITORING** | | | | |
-| 10 | EventBridge Scheduler | Daily Horoscope Trigger | $0.00 | $0.00 |
-| 11 | Amazon SQS | Notification Queue | $0.00 | $0.00 |
-| 12 | Amazon SES | Email Delivery | $0.00 | $0.50 |
-| 13 | Amazon CloudWatch | Logs/Metrics/Alarms | $5.00 | $30.00 |
-| 14 | Amazon SNS | Alert Notifications | $0.00 | $0.00 |
+| Layer | AWS Service | Purpose | Estimated Monthly Cost (USD) - Paid |
+| :---: | :---: | :--- | :---: |
+| **I. COMPUTE & API** | | | |
+| 1 | **AWS Lambda** | Backend Logic (RAG, Compute) | $0.22 |
+| 2 | **Amazon API Gateway** | Synchronous Request Gateway | $0.03 |
+| 3 | **AWS App Runner** | Host Frontend (Next.js) | $12.60 |
+| **II. DATA & STORAGE** | | | |
+| 4 | **RDS for PostgreSQL** | Relational Data/Profiles | $37.14 |
+| 5 | **Amazon DynamoDB** | Chat History/Rate Limiting | $0.39 |
+| 6 | **Amazon S3** | RAG Knowledge Base/Assets | $0.88 |
+| **III. AI & SECURITY** | | | |
+| 7 | **Amazon Bedrock** | LLM/Content Generation | $7.87 |
+| 8 | **Amazon Cognito** | Authentication/User Roles (MAUs) | $0.00 |
+| 9 | **Secrets Manager** | Store Master Keys (Fixed Cost) | $0.01 |
+| **IV. ASYNC & MONITORING** | | | |
+| 10 | **EventBridge Scheduler** | Daily Horoscope Trigger | $0.00 |
+| 11 | **Amazon SQS** | Notification Queue | $0.01 |
+| 12 | **Amazon SES** | Email Delivery | $0.24 |
+| 13 | **Amazon CloudWatch** | Logs/Metrics/Alarms | $6.23 |
+| 14 | **Amazon SNS** | Alert Notifications | $0.00 |
 
-### Total Project Cost
-
-| Category | Cost Estimation (USD/Month) | Purpose / Control Mechanism |
-| :---: | :---: | :---: |
-| **Total Cost (Scenario A: Free Tier/Demo)** | $12.57 | Includes Lambda overage and fixed costs. Achieves low operational cost. |
-| **Total Cost (Scenario B: Paid/Production)** | $92.33 | Full commercial rate required for 24/7 reliability (App Runner, RDS). |
+Link budget estimation: https://drive.google.com/file/d/1B7qVuUHAq4rsdDJjaa-wgAi8MGUIq4Ip/view?usp=sharing
+ 
+### Total Project Cost: $89.59/month
 
 ## 7. Risk Assessment
 
