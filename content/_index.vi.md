@@ -18,11 +18,11 @@ chapter: false
 
 ### Thành Viên Nhóm
 
-| Vai trò | Họ và Tên | Chuyên ngành | Liên hệ |
-| :---: | :--- | :--- | :--- |
-| **Trưởng nhóm** | Trần Phương Huyền | Software Engineering | tranphuonghuyen2005@gmail.com |
-| AI | Nguyễn Lâm Anh | Artifical Intelligent | nguyenla110505@gmail.com |
-| AI | Nguyễn Văn Linh | Artifical Intelligent | nguyenvanlinh.1710.it@gmail.com |
-| SE | Bùi Nguyễn Tấn Khang | Software Engineering | tankhang6a6@gmail.com |
+| Ảnh | Vai trò | Họ và Tên | Chuyên ngành | Liên hệ |
+| :---: | :---: | :--- | :--- | :--- |
+|![Profile picture](/images/PHuyen.png) | **Trưởng nhóm** | Trần Phương Huyền | Software Engineering | tranphuonghuyen2005@gmail.com |
+|![Profile picture](/images/LamAnh.jpg) | AI | Nguyễn Lâm Anh | Artifical Intelligent | nguyenla110505@gmail.com |
+|![Profile picture](/images/VanLinh.jpg)| AI | Nguyễn Văn Linh | Artifical Intelligent | nguyenvanlinh.1710.it@gmail.com |
+| ![Profile picture](/images/TanKhang.jpg)| SE | Bùi Nguyễn Tấn Khang | Software Engineering | tankhang6a6@gmail.com |
 
 

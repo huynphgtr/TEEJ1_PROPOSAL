@@ -19,10 +19,10 @@ chapter: false
 
 ### Team Member 
 
-| Role | Full Name | Major | Contact |
-| :---: | :--- | :--- | :--- |
-| **Leader** | Tran Phuong Huyen | Software Engineering | tranphuonghuyen2005@gmail.com |
-| AI | Nguyen Lam Anh | Artifical Intelligent | nguyenla110505@gmail.com |
-| AI | Nguyen Van Linh | Artifical Intelligent | nguyenvanlinh.1710.it@gmail.com |
-| SE | Bui Nguyen Tan Khang | Software Engineering | tankhang6a6@gmail.com |
+| Photo| Role | Full Name | Major | Contact |
+| :---:| :---: | :--- | :--- | :--- |
+|![Profile picture](/images/PHuyen.png) | **Leader** | Tran Phuong Huyen | Software Engineering | tranphuonghuyen2005@gmail.com |
+| ![Profile picture](/images/LamAnh.jpg) | AI | Nguyen Lam Anh | Artifical Intelligent | nguyenla110505@gmail.com |
+| ![Profile picture](/images/VanLinh.jpg) | AI | Nguyen Van Linh | Artifical Intelligent | nguyenvanlinh.1710.it@gmail.com |
+| ![Profile picture](/images/TanKhang.jpg) | SE | Bui Nguyen Tan Khang | Software Engineering | tankhang6a6@gmail.com |
 
