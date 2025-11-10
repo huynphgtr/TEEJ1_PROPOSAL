@@ -3,7 +3,7 @@ title: "Báo cáo thực tập"
 weight: 1
 chapter: false
 ---
-# Chi Tiết Thực Tập Nhóm
+# Thông tin Nhóm thực tập 
 
 ### Thông Tin Dự Án
 
@@ -11,8 +11,8 @@ chapter: false
 | :--- | :--- |
 | **Tên Nhóm** | **TEEJ_SorcererXStreme** |
 | **Trường Đại học** | Đại học FPT - Hồ Chí Minh Campus|
-| **Công ty Thực tập** | Amazon Web Services Vietnam Co., Ltd. |
-| **Vị trí Thực tập** | FCJ Cloud Intern |
+| **Công ty Thực tập** | Công ty TNHH Amazon Web Services Việt Nam |
+| **Vị trí Thực tập** | Thực tập sinh chương trình FCJ Workforce  |
 | **Thời gian Thực tập** | Từ ngày 08/09/2025 đến 24/12/2025 |
 
 
@@ -20,9 +20,9 @@ chapter: false
 
 | Ảnh | Vai trò | Họ và Tên | Chuyên ngành | Liên hệ |
 | :---: | :---: | :--- | :--- | :--- |
-|![Profile picture](/images/PHuyen.png) | **Trưởng nhóm** | Trần Phương Huyền | Software Engineering | tranphuonghuyen2005@gmail.com |
-|![Profile picture](/images/LamAnh.jpg) | AI | Nguyễn Lâm Anh | Artifical Intelligent | nguyenla110505@gmail.com |
-|![Profile picture](/images/VanLinh.jpg)| AI | Nguyễn Văn Linh | Artifical Intelligent | nguyenvanlinh.1710.it@gmail.com |
-| ![Profile picture](/images/TanKhang.jpg)| SE | Bùi Nguyễn Tấn Khang | Software Engineering | tankhang6a6@gmail.com |
+|![Profile picture](/images/PHuyen.png) | **Trưởng nhóm** | Trần Phương Huyền | Kỹ thuật phần mềm | tranphuonghuyen2005@gmail.com |
+|![Profile picture](/images/LamAnh.jpg) | AI | Nguyễn Lâm Anh | Trí tuệ nhân tạo | nguyenla110505@gmail.com |
+|![Profile picture](/images/VanLinh.jpg)| AI | Nguyễn Văn Linh | Trí tuệ nhân tạo | nguyenvanlinh.1710.it@gmail.com |
+| ![Profile picture](/images/TanKhang.jpg)| SE | Bùi Nguyễn Tấn Khang | Kỹ thuật phần mềm | tankhang6a6@gmail.com |
 
 

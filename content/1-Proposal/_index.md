@@ -35,11 +35,11 @@ SorcererXStreme AI offers a unified, intuitive, and intelligent platform:
 ### Benefits and Return on Investment
 
 | Benefit              | Impact                                                                       | Value                                     |
-| :-------------------: | :----------------------------------------------------------------------------: | :---------------------------------------: |
+| :-------------------| :---------------------------------------------------------------------------- | :---------------------------------------|
 | **Data Reliability** | RAG reduces AI "hallucinations" and provides verifiable interpretations.       | High Trust & better user retention.       |
 | **Centralization**   | Consolidates Eastern and Western mystical data in one platform.                | Unified Knowledge base for users.         |
 | **Monetization**     | VIP subscription model unlocks advanced features.                              | Stable Revenue stream and business viability. |
-| **Operational Cost** | Serverless AWS architecture is used.                                         | Estimated $15–$35/month for MVP .         |
+| **Operational Cost** | Serverless AWS architecture is used.                                         | Estimated $80–$90/month for MVP .         |
 
 ## 3. Solution Architecture
 
@@ -49,15 +49,15 @@ The SorcererXStreme AI platform utilizes a robust, hybrid serverless architectur
 
 ### AWS Services Used
 
-| Layer                   | AWS Service                       | Primary Role in SorcererXStreme AI                                                                                                                                                                                                                                        |
-| :---------------------------: | :-------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| **Network & Edge**          | Route 53, CloudFront, WAF             | Route 53 handles DNS routing. CloudFront (CDN) accelerates content delivery. WAF provides traffic filtering and security against web exploits.                                                                                       |
-| **Security & Identity**     | Cognito, Secrets Manager              | Cognito manages user authentication and authorization. Secrets Manager securely stores and manages sensitive credentials.                                                                                                            |
-| **Compute (API)**           | App Runner, API Gateway, AWS Lambda   | App Runner hosts the Next.js frontend or core backend containers. API Gateway acts as the synchronous entry point, routing requests to dedicated Lambda Functions (Chatbot, Metaphysical API, History API).                          |
-| **Asynchronous & Events**   | EventBridge Scheduler, SQS, SES       | EventBridge Scheduler triggers the daily horoscope function. SQS buffers and decouples the message processing (fan-out/fan-in) for reminders. SES sends notification emails to users.                                                |
+| Layer                   | AWS Service                       | Primary Role in SorcererXStreme |
+| :---------------------------| :------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Network & Edge**          | Route 53, CloudFront, WAF  | - Route 53 handles DNS routing.<br> - CloudFront (CDN) accelerates content delivery. <br> - WAF provides traffic filtering and security against web exploits.                                                                                       |
+| **Security & Identity**     | Cognito, Secrets Manager | - Cognito manages user authentication and authorization. <br> - Secrets Manager securely stores and manages sensitive credentials.                                                                                                            |
+| **Compute (API)** | App Runner, API Gateway, AWS Lambda   | - App Runner hosts the Next.js frontend or core backend containers. <br> - API Gateway acts as the synchronous entry point, routing requests to dedicated Lambda Functions (Chatbot, Metaphysical API, History API).                          |
+| **Asynchronous & Events**   | EventBridge Scheduler, SQS, SES       | - EventBridge Scheduler triggers the daily horoscope function. <br> - SQS buffers and decouples the message processing (fan-out/fan-in) for reminders. <br> - SES sends notification emails to users.                                                |
 | **AI/ML Layer**             | Amazon Bedrock                        | Provides managed access to Foundational Models (LLMs) for the AI Prophet chatbot, handling RAG context and content generation.                                                                                                       |
-| **Data & Storage**          | RDS for PostgreSQL, DynamoDB, S3      | RDS stores relational data (detailed user profiles, user lists for reminders). DynamoDB stores high-velocity, frequently accessed data (Chat History, Interpretation History). S3 stores static assets and the RAG knowledge base.   |
-| **Monitoring & DevOps**     | CloudWatch, SNS, CodePipeline         | CloudWatch collects logs and metrics. SNS sends critical alerts to developers. CodePipeline/CodeBuild manages the CI/CD pipeline from GitHub to deployment.                                                                          |
+| **Data & Storage**          | RDS for PostgreSQL, DynamoDB, S3      | - RDS stores relational data (detailed user profiles, user lists for reminders).<br> - DynamoDB stores high-velocity, frequently accessed data (Chat History, Interpretation History). <br> - S3 stores static assets and the RAG knowledge base.   |
+| **Monitoring & DevOps**     | CloudWatch, SNS, CodePipeline | - CloudWatch collects logs and metrics. <br> - SNS sends critical alerts to developers. <br> - CodePipeline/CodeBuild manages the CI/CD pipeline from GitHub to deployment.  |
 
 ### Component Design (Comprehensive Flow Description)
 
@@ -93,8 +93,8 @@ The SorcererXStreme project will follow an **Agile-Iterative Development** metho
 
 ### Implementation Phases
 
-| Phase                                             | Duration   | Focus Area                                                                                                                                     |
-| :-----------------------------------------------------: | :--------------: | :----------------------------------------------------------------------------------------------------------------------------------: |
+| Phase | Duration   | Focus Area |
+| :----------------------------------------------------- | :--------------| :---------------------------------------------------------------------------------------------------------------------------------- |
 | **I. Requirement Analysis & Documentation (Iter 3)**   | 3 Week         | Finalize SRS (v2) and SDS (v2) documents, proposal, setting the foundation for expanded roles and RAG.                                             |
 | **II. Design & Expansion (Iter 4)**                   | 3 Week         | Core development of the RAG pipeline, implementation of the User Role system (Guest/Free/VIP), and configuration of the core AWS infrastructure.   |
 | **III. AWS Integration & Testing (Iter 5)**           | 3 Week         | Full deployment on AWS, end-to-end testing, and performance optimization.                                                                          |
@@ -107,7 +107,7 @@ The SorcererXStreme project will follow an **Agile-Iterative Development** metho
 **Goal:** Re-analyze requirements, finalize the AWS architecture, define user experience flows, and prototype the RAG design.
 
 | Category               | Key Tasks                                                                                                                                                                            | Responsibility   |
-| :--------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------: |
+| :-------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------|
 | **System Documentation**   | Review and update existing architecture. Write **SRS v2** (Functional & Non-functional) and **SDS v2**.                                                                                  | SE                   |
 | **UX & Role Flow**         | Design detailed user flows for **Guest/Free/VIP** transitions. Define functional limits per role. Propose **VIP upgrade UI**.                                                            | SE                   |
 | **RAG Architecture**       | Propose the RAG mechanism (data source, pipeline, embedding storage). Design RAG prototype pipeline: text -> embedding -> index. **Data collection** (Tarot, Horoscope, Numerology).   | AI                   |
@@ -120,7 +120,7 @@ The SorcererXStreme project will follow an **Agile-Iterative Development** metho
 **Goal:** Implement the user authorization system and integrate the foundational RAG data corpus.
 
 | Category                 | Key Tasks                                                                                                                                               | Responsibility   |
-| :----------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------: |
+| :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------- |
 | **Authentication & Roles**   | Design the user schema (guest, free, vip). Integrate **AWS Cognito** into the frontend. Define API access permissions based on user role.   | SE                   |
 | **VIP Functionality**        | Implement logic for **limiting chat counts, Tarot pulls,** and detailed Astrology views. Deploy pricing model and upgrade screens.          | SE                   |
 | **RAG Production Prep**      | Cleanse and standardize data. Implement context retrieval by topic (love, career, zodiac). Build and store the initial **Corpus on S3**.    | AI                   |
@@ -133,7 +133,7 @@ The SorcererXStreme project will follow an **Agile-Iterative Development** metho
 **Goal:** Complete full deployment on the cloud, perform comprehensive testing, and prepare for public release.
 
 | Category               | Key Tasks                                                                                                                                                | Responsibility   |
-| :--------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------: |
+| :--------------------------| :-------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------|
 | **AWS Infrastructure**     | Final configuration of **App Runner + Lambda**. Deploy **DynamoDB, S3, Cognito**. Create minimal **IAM Policies**.                           | SE                   |
 | **Monitoring & Logging**   | Set up **CloudWatch** for Lambda and Cognito logging. Create a dashboard to monitor usage and costs.                                         | SE                   |
 | **AI Model Tuning**        | Optimize **LLM prompt** and RAG pipeline. Implement **LLM token control** mechanisms for cost governance.                                    | AI                   |
@@ -148,7 +148,7 @@ The SorcererXStreme project will be executed over a concentrated **9-week develo
 ### Project Timeline
 
 | Iteration                          | Duration   | Weeks       | Primary Focus                             | Key Deliverables (Milestones)                                                                                                                                           |
-| :--------------------------------------: | :--------------: | :---------------: | :-----------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| :-------------------------------------- | :--------------| :--------------- | :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Iter 3: Redesign & RAG Prototype**   | 3 Weeks        | 1 – 2 **–** 3   | **Foundational Design & Documentation**         | **SRS v2** and **SDS v2, Proposal** finalized. **AWS Architecture Diagram** with Cost Estimation ready. RAG data collected and initial pipeline designed.                   |
 | **Iter 4: Roles & VIP System**         | 3 Weeks        | 4 – 5 – 6       | **Core Logic Implementation & Authorization**   | **AWS Cognito** integrated for user authentication. Full **Guest/Free/VIP role logic** implemented and testable. RAG data corpus built on S3.                               |
 | **Iter 5: AWS Deployment & QA**        | 3 Weeks        | 7 – 8 – 9       | **Cloud Deployment & Stabilization**            | System running **stably on AWS** (Amplify, Lambda, DynamoDB). Full end-to-end testing completed. **AWS Cost and Performance Sheet** finalized. Readiness for Beta Launch.   |
@@ -156,12 +156,12 @@ The SorcererXStreme project will be executed over a concentrated **9-week develo
 
 ## 6. Budget Estimation
 
-The project is structured to operate primarily within the AWS Free Tier for the first 12 months, resulting in an extremely low operational cost. We assume low usage for a non-production Demo and MVP environment (approx. 5,000 requests/month).
+The project assume low usage for a non-production Demo and MVP environment (approx. 5,000 requests/month).
 
 ### Infrastructure Costs 
 
 | Layer | AWS Service | Purpose | Estimated Monthly Cost (USD) - Paid |
-| :---: | :---: | :--- | :---: |
+| :---: | :--- | :--- | :---: |
 | **I. COMPUTE & API** | | | |
 | 1 | **AWS Lambda** | Backend Logic (RAG, Compute) | $0.22 |
 | 2 | **Amazon API Gateway** | Synchronous Request Gateway | $0.03 |
@@ -190,7 +190,7 @@ Link budget estimation: https://drive.google.com/file/d/1B7qVuUHAq4rsdDJjaa-wgAi
 ### Risk Matrix
 
 | Risk                        | Impact   | Probability   | Mitigation Strategy                                                                            |
-| :-------------------------------: | :------------: | :-----------------: | :--------------------------------------------------------------------------------------------------: |
+| :-------------------------------| :------------| :---------------- | :------------------------------------------------------------------------------------------------- |
 | **LLM Hallucination**           | High         | Medium            | Implement **RAG Fact Checker**; use high-quality LLMs; ground answers in verified sources.         |
 | **Cost Overruns (LLM Calls)**   | High         | Medium            | Set up **AWS Budget Alerts**; implement **token control**; use tiered LLM models (Free vs. VIP).   |
 | **RAG Retrieval Latency**       | Medium       | Medium            | Optimize RAG indexing (FAISS); optimize chunk size and embedding model choice.                     |
