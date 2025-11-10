@@ -9,10 +9,10 @@ chapter: false
 
 | Field | Detail |
 | :--- | :--- |
-| **Group Name** | **TEEJ1** |
-| **University** | FPT University HCMC |
+| **Group Name** | **TEEJ_SorcererXStreme** |
+| **University** | FPT University - Ho Chi Minh Campus |
 | **Internship Company** | Amazon Web Services Vietnam Co., Ltd. |
-| **Internship Position** | FCJ Cloud Intern |
+| **Internship Position** | FCJ Workforce Program Intern |
 | **Internship Duration** | From 08/09/2025 to 24/12/2025 |
 
 
